@@ -15,6 +15,7 @@ struct player
     int faith = 100;
     string name;
     string origin;
+    string enplacement;
 };
 
 string tache[6] = {"aller a la rivière chercher de l'eau pour l'apporter au pretre", "precher la sainte parole dans la rue", "acheter un employer", "eliminer un heritique", "chercher des nouveau compagnon"};            //TODO: add more tache
@@ -34,154 +35,353 @@ int main()
     myPlayer.name = createPlayer();
     myPlayer.origin = setPlayerOrigin();
     int choice = 0;
-    cout << "bonjour " << myPlayer.name << "\n";
-
-    cout << "Pendant la nuit, tu senti une entité te soulever de ton lit pour te parler. C’était ton dieu qui voulait te parler, il te dit que tu vas devoir effectuer des taches pour avoir son pardon sinon à ta mort tu vas finir dans les abysses sacramental.\n\ntu tombes pendant quelque minute.\n\ncette troublante nuit de sommeil, tu te réveil pour commencer ta journée.\n\nTu te lève de ton lit et tu te dirige vers la salle de bain pour te laver et te préparer pour la journée qui t’attend." << endl;
+    cout << "Bonjour " << myPlayer.name << "\n";
+    //cout << "Pendant la nuit, tu senti une entité te soulever de ton lit pour te parler. C’était ton dieu qui voulait te parler, il te dit que tu vas devoir effectuer des taches pour avoir son pardon sinon à ta mort tu vas finir dans les abysses sacramental.\n\ntu tombes pendant quelque minute.\n\ncette troublante nuit de sommeil, tu te réveil pour commencer ta journée.\n\nTu te lève de ton lit et tu te dirige vers la salle de bain pour te laver et te préparer pour la journée qui t’attend." << endl;
     
 
     while (true)
     {
-        if (myPlayer.origin == "Noble"){
-            cout << "que veut tu faire\n";
-            cout << "1-aller collecter largent des gens du village\n";
-            cout << "2-aller à la taverne pour boire un coup\n";
-            cout << "3-effectuer une tache pour ton dieu\n";
-            cout << "4-aller te promener dans ton village\n";
-            cout << "> ";
-            cin >> choice;
-
-            if (choice == 1){
-                cout << "tu te dirige vers la maison de ton voisin pour collecter l'argent qu'il te doit\n";
-                cout << "tu arrive devant la porte de ton voisin, tu frappe à la porte\n";
-                cout << "ton voisin ouvre la porte et te dit: bonjour " << myPlayer.name << " que me vaut l'honneur de ta visite\n";
-                cout << "tu lui répond: bonjour je suis venu pour collecter l'argent que tu me doit\n";
-                cout << "ton voisin te répond: je n'ai pas d'argent pour toi\n";
-                cout << "tu lui répond: je ne suis pas venu pour rien, je vais devoir te tuer\n";
-                cout << "ton voisin te répond: je ne vais pas me laisser faire\n";
-                cout << "tu lui répond: tu n'as pas le choix\n";
-                cout << "ton voisin te répond: je vais te tuer\n";
-                cout << "tu lui répond: tu n'as pas le choix\n";
-                cout << "tu commence a te battre\n";
-                cout << "tu retourne chez toi\n";
-
-                myPlayer.hp = fight(myPlayer.hp, myPlayer.attack);
-                if (myPlayer.hp > 0)
-                {
-                    myPlayer.xp += 10;
-                    cout << "You gained 10 XP!" << endl;
-                }
-                else
-                {
-                    cout << "You gained 5 XP!" << endl;
-                    myPlayer.xp += 5;
-                    return 0;
-                }
-            }
-            else if (choice == 2)
-            {
-                cout << "tu te dirige vers la taverne pour boire un coup\n";
-                cout << "tu arrive à la taverne\n";
-                cout << "tu entre dans la taverne\n";
-                cout << "tu te dirige vers le bar\n";
-                cout << "tu demande au barman: bonjour, je voudrais une bière\n";
-                cout << "le barman te répond: bonjour, voici votre bière\n";
-                cout << "tu prend la bière et tu la bois et tu gagne 15hp\n";
-                cout << "tu retourne chez toi\n";
-                myPlayer.hp += 15;
-            }
-
-            else if (choice == 3)
-            {
-                cout << tache[myPlayer.tache_effectuer] << endl;
-                myPlayer.hp = fight(myPlayer.hp, myPlayer.attack);
-                if (myPlayer.hp > 0)
-                {
-                    myPlayer.xp += 10;
-                    cout << "You gained 10 XP!" << endl;
-                }
-                else
-                {
-                    cout << "You gained 5 XP!" << endl;
-                    myPlayer.xp += 5;
-                    return 0;
-                }
-
-                myPlayer.tache_effectuer += 1;
-            }
-
-            else if (choice == 4)
-            {
-                cout << "tu te prommene dans ton village\n";
-                cout << "tu encourage les gens a travailler plus fort\n";
-                cout << "tu passe devant le marcher e tu demande au marchand combien il a fait\n";
-                cout << "le marchand te répond: j'ai fait 1000 pièces d'or\n";
-                cout << "tu lui répond: je vais prendre 500 pièces d'or\n";
-                cout << "le marchand te répond: d'accord\n";
-                myPlayer.argent_collecter += 500;
-            }
-            cout << "tu retourne chez toi\n";
-            cout << "tu te couche dans ton lit\n";
-            cout << "tu t'endors\n";
-            day_last += 1;
-
-        }
-
-        if (myPlayer.origin == "Pieux")
+        if (myPlayer.origin == "Noble")
         {
-            cout << "que veut tu faire\n";
-            cout << "1-aller prier\n";
-            cout << "2-aller à la taverne pour boire un coup\n";
-            cout << "3-effectuer une tache pour ton dieu\n";
-            cout << "4-aller te promener dans le village\n";
-            cout << "5-aller à la rivière pour prier\n";
-            cout << "6-tuer un inclute\n";
+            //le personage
+            string personage;
+
+            //les choix generique
+            cout << "que veux tu faire ?:" << endl;
+            cout << "1-te deplacer\n";
+            cout << "2-tuer un heritique\n";
+            cout << "3-quiter la ville\n";
+            
+            //choix costum avec enplacement
+            if (myPlayer.enplacement == "Churche")
+            {
+                cout << "4-aller voir le pretre\n";
+                personage = "pretre";
+            } else if (myPlayer.enplacement == "Bar")
+            {
+                cout << "4-aller voir le barman\n";
+                personage = "barman";
+            } else if (myPlayer.enplacement == "Market")
+            {
+                cout << "4-aller voir le marchand\n";
+                personage = "marchand";
+            } else if (myPlayer.enplacement == "Castle")
+            {
+                cout << "4-aller voir le roi\n";
+                personage = "roi";                
+            }
+
+            cout << "> ";
+            cin >> choice;
+            switch (choice)
+            {
+                case 1:
+                    myPlayer.enplacement = move();
+                    break;
+                 
+                case 2:
+                    myPlayer.hp = fight(myPlayer.hp, myPlayer.attack);
+                    if (myPlayer.hp <= 0)
+                    {
+                        cout << "Vous êtes mort" << endl;
+                        return 0;
+                    }
+                    break;
+                
+                case 3:
+                    cout << "Vous avez quitter la ville" << endl;
+                    return 0;
+                    break;
+
+                case 4:
+                    int taskChoice;
+                    cout << "Vous avez choisi d'aller voir le " << personage << endl;
+                    cout << "Quelle tâche souhaitez-vous lui confier ?" << endl;
+                    cout << "1 - Livrer un message important" << endl;
+                    cout << "2 - Trouver un objet précieux" << endl;
+                    cout << "3 - Récupérer des informations confidentielles" << endl;
+                    cout << "4 - Accomplir une mission secrète" << endl;
+                    cout << "Choisissez une option : ";
+                    cin >> taskChoice;
+                    
+                    switch (taskChoice)
+                    {
+                        case 1:
+                            cout << "Très bien, vous devez livrer un message important au roi." << endl;
+                            if (livraison("chateau"))
+                            {
+                                cout << "Vous avez livré le message avec succès !" << endl;
+                                myPlayer.argent_collecter += 10;
+                                myPlayer.tache_effectuer += 1;
+                                myPlayer.xp += 10;
+                                myPlayer.enplacement = "Castle";
+                            }
+
+                            break;
+                            
+                        case 2:
+                            cout << "D'accord, votre mission est de trouver un objet précieux pour le roi." << endl;
+                            if (trouverObjet("un verre en or", myPlayer.hp, myPlayer.attack))
+                            {
+                                cout << "Vous avez trouvé l'objet précieux !" << endl;
+                                myPlayer.argent_collecter += 10;
+                                myPlayer.tache_effectuer += 1;
+                                myPlayer.xp += 10;
+                            }
+                            else
+                            {
+                                cout << "Vous etes mort" << endl;
+                                return -1;
+                            }
+                            break;
+                            
+                        case 3:
+                            cout << "Entendu, vous devez récupérer des informations confidentielles pour le roi sur le marchand." << endl;
+                            espionnage();
+                            myPlayer.argent_collecter += 10;
+                            myPlayer.tache_effectuer += 1;
+                            myPlayer.xp += 10;
+                            break;
+                            
+                        
+                            
+                        default:
+                            cout << "Option invalide." << endl;
+                            break;
+                    }
+                    break;
+
+                default:
+                    break;
+            }
+
+
+        } else if (myPlayer.origin == "Sans dessein")
+        {
+            //le personage
+            string personage;
+
+            //les choix generique
+            cout << "que veux tu faire ?:" << endl;
+            cout << "1-te deplacer\n";
+            cout << "2-tuer un heritique\n";
+            cout << "3-quiter la ville\n";
+            
+            //choix costum avec enplacement
+            if (myPlayer.enplacement == "Churche")
+            {
+                cout << "4-aller voir le pretre\n";
+                personage = "pretre";
+            } else if (myPlayer.enplacement == "Bar")
+            {
+                cout << "4-aller voir le barman\n";
+                personage = "barman";
+            } else if (myPlayer.enplacement == "Market")
+            {
+                cout << "4-aller voir le marchand\n";
+                personage = "marchand";
+            } else if (myPlayer.enplacement == "Castle")
+            {
+                cout << "4-aller voir le roi\n";
+                personage = "roi";                
+            }
+
+            cout << "> ";
+            cin >> choice;    
+
+            switch (choice)
+            {
+                case 1:
+                    myPlayer.enplacement = move();
+                    break;
+
+                case 2:
+                    myPlayer.hp = fight(myPlayer.hp, myPlayer.attack);
+                    if (myPlayer.hp <= 0)
+                    {
+                        cout << "Vous êtes mort" << endl;
+                        return 0;
+                    }
+                    break;
+                
+                case 3:
+                    cout << "Vous avez quitter la ville" << endl;
+                    return 0;
+                    break;
+
+                case 4:
+                    int taskChoice;
+                    cout << "Vous avez choisi d'aller voir le " << personage << endl;
+                    cout << "Quelle tâche souhaitez-vous lui confier ?" << endl;
+                    cout << "1 - Livrer un message important" << endl;
+                    cout << "2 - Trouver un objet précieux" << endl;
+                    cout << "3 - Récupérer des informations confidentielles" << endl;
+                    cout << "4 - Accomplir une mission secrète" << endl;
+                    cout << "Choisissez une option : ";
+                    cin >> taskChoice;
+                    
+                    switch (taskChoice)
+                    {
+                        case 1:
+                            cout << "Très bien, vous devez livrer un message important au roi." << endl;
+                            if (livraison("chateau"))
+                            {
+                                cout << "Vous avez livré le message avec succès !" << endl;
+                                myPlayer.argent_collecter += 10;
+                                myPlayer.tache_effectuer += 1;
+                                myPlayer.xp += 10;
+                                myPlayer.enplacement = "Castle";
+                            }
+
+                            break;
+                            
+                        case 2:
+                            cout << "D'accord, votre mission est de trouver un objet précieux pour le roi." << endl;
+                            if (trouverObjet("un verre en or", myPlayer.hp, myPlayer.attack))
+                            {
+                                cout << "Vous avez trouvé l'objet précieux !" << endl;
+                                myPlayer.argent_collecter += 10;
+                                myPlayer.tache_effectuer += 1;
+                                myPlayer.xp += 10;
+                            }
+                            else
+                            {
+                                cout << "Vous etes mort" << endl;
+                                return -1;
+                            }
+                            break;
+                            
+                        case 3:
+                            cout << "Entendu, vous devez récupérer des informations confidentielles pour le roi sur le marchand." << endl;
+                            espionnage();
+                            myPlayer.argent_collecter += 10;
+                            myPlayer.tache_effectuer += 1;
+                            myPlayer.xp += 10;
+                            break;
+                            
+                        
+                            
+                        default:
+                            cout << "Option invalide." << endl;
+                            break;
+                    }
+                    break;
+                default:
+                    break;
+            }
+        } else if (myPlayer.origin == "Pieux")
+        {
+            //le personage
+            string personage;
+
+            //les choix generique
+            cout << "que veux tu faire ?:" << endl;
+            cout << "1-te deplacer\n";
+            cout << "2-tuer un heritique\n";
+            cout << "3-quiter la ville\n";
+            
+            //choix costum avec enplacement
+            if (myPlayer.enplacement == "Churche")
+            {
+                cout << "4-aller voir le pretre\n";
+                personage = "pretre";
+            } else if (myPlayer.enplacement == "Bar")
+            {
+                cout << "4-aller voir le barman\n";
+                personage = "barman";
+            } else if (myPlayer.enplacement == "Market")
+            {
+                cout << "4-aller voir le marchand\n";
+                personage = "marchand";
+            } else if (myPlayer.enplacement == "Castle")
+            {
+                cout << "4-aller voir le roi\n";
+                personage = "roi";                
+            }
+
             cout << "> ";
             cin >> choice;
 
-            if (choice == 1)
+            switch (choice)
             {
-                cout << "tu te dirige vers l'église pour prier\n";
-                cout << "tu arrive à l'église\n";
-                cout << "tu entre dans l'église\n";
-                cout << "tu te dirige vers le prêtre\n";
-                cout << "tu demande au prêtre: bonjour, je voudrais prier\n";
-                cout << "le prêtre te répond: bonjour, tu peux aller prier\n";
-                cout << "tu te dirige vers le banc pour prier\n";
-                cout << "tu prie\n";
-                cout << "tu retourne chez toi\n";
-            }
+                case 1:
+                    myPlayer.enplacement = move();
+                    break;
 
-            else if (choice == 2)
-            {
-                cout << "tu te dirige vers la taverne pour boire un coup\n";
-                cout << "tu arrive à la taverne\n";
-                cout << "tu entre dans la taverne\n";
-                cout << "tu te dirige vers le bar\n";
-                cout << "tu demande au barman: bonjour, je voudrais une bière\n";
-                cout << "le barman te répond: bonjour, voici votre bière\n";
-                cout << "tu prend la bière et tu la bois et tu gagne 15hp\n";
-                cout << "tu retourne chez toi\n";
-                myPlayer.hp += 15;
-            }
-
-            else if (choice == 3)
-            {
-                cout << tache[myPlayer.tache_effectuer] << endl;
-                myPlayer.hp = fight(myPlayer.hp, myPlayer.attack);
-                if (myPlayer.hp > 0)
-                {
-                    myPlayer.xp += 10;
-                    cout << "You gained 10 XP!" << endl;
-                }
-                else
-                {
-                    cout << "You gained 5 XP!" << endl;
-                    myPlayer.xp += 5;
-                    return 0;
-                }
+                case 2:
+                    myPlayer.hp = fight(myPlayer.hp, myPlayer.attack);
+                    if (myPlayer.hp <= 0)
+                    {
+                        cout << "Vous êtes mort" << endl;
+                        return 0;
+                    }
+                    break;
                 
+                case 3:
+                    cout << "Vous avez quitter la ville" << endl;
+                    return 0;
+                    break;
 
-                myPlayer.tache_effectuer += 1;
+                case 4:
+                    int taskChoice;
+                    cout << "Vous avez choisi d'aller voir le " << personage << endl;
+                    cout << "Quelle tâche souhaitez-vous lui confier ?" << endl;
+                    cout << "1 - Livrer un message important" << endl;
+                    cout << "2 - Trouver un objet précieux" << endl;
+                    cout << "3 - Récupérer des informations confidentielles" << endl;
+                    cout << "4 - Accomplir une mission secrète" << endl;
+                    cout << "Choisissez une option : ";
+                    cin >> taskChoice;
+                    
+                    switch (taskChoice)
+                    {
+                        case 1:
+                            cout << "Très bien, vous devez livrer un message important au roi." << endl;
+                            if (livraison("chateau"))
+                            {
+                                cout << "Vous avez livré le message avec succès !" << endl;
+                                myPlayer.argent_collecter += 10;
+                                myPlayer.tache_effectuer += 1;
+                                myPlayer.xp += 10;
+                                myPlayer.enplacement = "Castle";
+                            }
+
+                            break;
+                            
+                        case 2:
+                            cout << "D'accord, votre mission est de trouver un objet précieux pour le roi." << endl;
+                            if (trouverObjet("un verre en or", myPlayer.hp, myPlayer.attack))
+                            {
+                                cout << "Vous avez trouvé l'objet précieux !" << endl;
+                                myPlayer.argent_collecter += 10;
+                                myPlayer.tache_effectuer += 1;
+                                myPlayer.xp += 10;
+                            }
+                            else
+                            {
+                                cout << "Vous etes mort" << endl;
+                                return -1;
+                            }
+                            break;
+                            
+                        case 3:
+                            cout << "Entendu, vous devez récupérer des informations confidentielles pour le roi sur le marchand." << endl;
+                            espionnage();
+                            myPlayer.argent_collecter += 10;
+                            myPlayer.tache_effectuer += 1;
+                            myPlayer.xp += 10;
+                            break;
+                            
+                        
+                            
+                        default:
+                            cout << "Option invalide." << endl;
+                            break;
+                    }
+                    break;
+                
+                default:
+                    break;
             }
         }
         myPlayer.level = level_up(myPlayer.xp, myPlayer.level);
@@ -200,6 +400,3 @@ int main()
     }
     return 0;
 }
-    
-
-
