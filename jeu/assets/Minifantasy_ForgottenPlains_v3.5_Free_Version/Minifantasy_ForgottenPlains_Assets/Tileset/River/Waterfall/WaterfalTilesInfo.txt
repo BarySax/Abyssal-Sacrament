@@ -1,0 +1,1 @@
+Waterfall layers are sliced in 8x8 tiles. You can use these tiles to make wider and/or higher waterfalls.

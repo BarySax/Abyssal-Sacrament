@@ -1,0 +1,9 @@
+*Frame size* 
+
+- Candel: 8x16px
+- Torch: 16x24px
+
+
+*Frame Duration*
+
+- 200ms
