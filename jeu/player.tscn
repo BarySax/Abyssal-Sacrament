@@ -1,3 +1,88 @@
-[gd_scene format=3 uid="uid://cqif5e5ioa5yk"]
+[gd_scene load_steps=13 format=3 uid="uid://gdhlvm8os277"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="Script" path="res://player.gd" id="1_sho0i"]
+[ext_resource type="Texture2D" uid="uid://jj3lapcp2n5h" path="res://assets/Minifantasy_Dungeon_v2.2_Free_Version/Minifantasy_Dungeon_Assets/Characters/Human/Walk.png" id="2_cuclb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idtpl"]
+atlas = ExtResource("2_cuclb")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oe303"]
+atlas = ExtResource("2_cuclb")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qiige"]
+atlas = ExtResource("2_cuclb")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4rn3a"]
+atlas = ExtResource("2_cuclb")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ty3o"]
+atlas = ExtResource("2_cuclb")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvxse"]
+atlas = ExtResource("2_cuclb")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgwum"]
+atlas = ExtResource("2_cuclb")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uv2qm"]
+atlas = ExtResource("2_cuclb")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5a6ss"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_idtpl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oe303")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qiige")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4rn3a")
+}],
+"loop": true,
+"name": &"walk back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ty3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wvxse")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgwum")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uv2qm")
+}],
+"loop": true,
+"name": &"walk front",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fcdr5"]
+radius = 4.19656
+
+[node name="Player" type="Area2D"]
+scale = Vector2(6, 6)
+script = ExtResource("1_sho0i")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5a6ss")
+animation = &"walk back"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fcdr5")
