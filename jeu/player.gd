@@ -9,9 +9,9 @@ func _ready():
 	screen_size = get_viewport_rect().size
 	hide()
 
-const jump_force = 400
+
 var velocity = Vector2.ZERO # The player's movement vector.
-var atraction = 3
+
 
 func _process(delta):
 	var velocity = Vector2.ZERO # The player's movement vector.
