@@ -1,8 +1,8 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1706291434
+::res://::1706616880
 icon.svg::CompressedTexture2D::8283709439367705627::1706228642::1706228642::1::::<><>::
-player.gd::GDScript::-1::1706290715::0::1::::<>Area2D<>::
-player.tscn::PackedScene::427771980819516252::1706290716::0::1::::<><>::res://player.gd<>uid://jj3lapcp2n5h::::res://assets/Minifantasy_Dungeon_v2.2_Free_Version/Minifantasy_Dungeon_Assets/Characters/Human/Walk.png
+player.gd::GDScript::-1::1706292458::0::1::::<>Area2D<>::
+player.tscn::PackedScene::427771980819516252::1706292464::0::1::::<><>::res://player.gd<>uid://kl26eujr1sh3::::res://assets/16x16-RPG-characters/sprites/new-style/chibi-layered.png
 ::res://assets/::1706228642
 ::res://assets/16x16-RPG-characters/::1706228642
 preview.png::CompressedTexture2D::7383344158659342635::1706228642::1706228642::1::::<><>::
