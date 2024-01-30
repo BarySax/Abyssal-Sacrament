@@ -1,7 +1,19 @@
-[gd_scene load_steps=11 format=3 uid="uid://gdhlvm8os277"]
+[gd_scene load_steps=14 format=3 uid="uid://gdhlvm8os277"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_sho0i"]
 [ext_resource type="Texture2D" uid="uid://kl26eujr1sh3" path="res://assets/16x16-RPG-characters/sprites/new-style/chibi-layered.png" id="2_n0y0y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1pj3"]
+atlas = ExtResource("2_n0y0y")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aw6v1"]
+atlas = ExtResource("2_n0y0y")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7iyx8"]
+atlas = ExtResource("2_n0y0y")
+region = Rect2(96, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_di8m5"]
 atlas = ExtResource("2_n0y0y")
@@ -29,6 +41,20 @@ region = Rect2(128, 16, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5a6ss"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1pj3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aw6v1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7iyx8")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_di8m5")
@@ -72,7 +98,7 @@ metadata/_edit_group_ = true
 position = Vector2(-0.166667, -0.166667)
 sprite_frames = SubResource("SpriteFrames_5a6ss")
 animation = &"walk_up"
-frame_progress = 0.254847
+frame_progress = 0.0140033
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1.47448, 0.932494)
