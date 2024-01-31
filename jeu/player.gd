@@ -7,6 +7,7 @@ var screen_size
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
+	$Area2D/sword_hit.visible = not $Area2D/sword_hit.visible
 	#hide()
 
 
@@ -23,14 +24,18 @@ func _process(delta):
 		velocity.y -= 1
 	if Input.is_action_pressed("down"):
 		velocity.y += 1
-	
-	
+	if Input.is_action_just_pressed("sword_hit"):
+		$Area2D/Sprite.visible = false
+		$Area2D/sword_hit.visible = true
+		await get_tree().create_timer(1).timeout
+		$Area2D/Sprite.visible = true
+		$Area2D/sword_hit.visible = false
+		
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
 		$AnimatedSprite2D.play()
 	else:
 		$AnimatedSprite2D.stop()
-	
 
 	
 	position += velocity * delta
@@ -46,4 +51,4 @@ func _process(delta):
 		#$AnimatedSprite2D.flip_v = velocity.y > 0
 	elif velocity.y > 0:
 		$AnimatedSprite2D.animation = "walk_down"
-
+	
