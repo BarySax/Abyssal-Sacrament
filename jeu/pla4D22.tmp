@@ -111,11 +111,15 @@ shape = SubResource("CapsuleShape2D_mmqxl")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="Sprite" type="Sprite2D" parent="Area2D"]
-position = Vector2(4.37274, 5.83597)
-rotation = 0.673697
+position = Vector2(4.83333, 2.66667)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_x55ch")
-offset = Vector2(0.202309, -6.56604)
+
+[node name="sword_hit" type="Sprite2D" parent="Area2D"]
+position = Vector2(7.66667, 4.5)
+rotation = 1.08185
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_x55ch")
 
 [node name="sword" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(7.79195, 4.41199)

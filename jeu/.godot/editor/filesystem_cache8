@@ -1,8 +1,8 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1706705598
+::res://::1706708958
 icon.svg::CompressedTexture2D::8283709439367705627::1706636758::1706636758::1::::<><>::
-player.gd::GDScript::-1::1706639527::0::1::::<>Area2D<>::
-player.tscn::PackedScene::427771980819516252::1706639597::0::1::::<><>::res://player.gd<>uid://kl26eujr1sh3::::res://assets/16x16-RPG-characters/sprites/new-style/chibi-layered.png<>uid://c2s0vl2sd547v::::res://assets/NinjaAdventure/Items/Weapons/BigSword/Sprite.png
+player.gd::GDScript::-1::1706707906::0::1::::<>Area2D<>::
+player.tscn::PackedScene::427771980819516252::1706707906::0::1::::<><>::res://player.gd<>uid://kl26eujr1sh3::::res://assets/16x16-RPG-characters/sprites/new-style/chibi-layered.png<>uid://c2s0vl2sd547v::::res://assets/NinjaAdventure/Items/Weapons/BigSword/Sprite.png
 ::res://assets/::1706638599
 sword1.png::CompressedTexture2D::9001586638251686450::1706638484::1706638488::1::::<><>::
 sword.png::CompressedTexture2D::4178894604633458888::1706638454::1706638488::1::::<><>::
