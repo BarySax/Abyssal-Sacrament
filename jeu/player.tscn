@@ -1,8 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://gdhlvm8os277"]
+[gd_scene load_steps=14 format=3 uid="uid://gdhlvm8os277"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_sho0i"]
 [ext_resource type="Texture2D" uid="uid://kl26eujr1sh3" path="res://assets/16x16-RPG-characters/sprites/new-style/chibi-layered.png" id="2_n0y0y"]
-[ext_resource type="Texture2D" uid="uid://c2s0vl2sd547v" path="res://assets/NinjaAdventure/Items/Weapons/BigSword/Sprite.png" id="3_x55ch"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m1pj3"]
 atlas = ExtResource("2_n0y0y")
@@ -89,9 +88,6 @@ animations = [{
 radius = 4.18227
 height = 17.3333
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5hads"]
-size = Vector2(6.90033, 16.7249)
-
 [node name="Player" type="Area2D"]
 position = Vector2(100, 100)
 scale = Vector2(6, 6)
@@ -107,22 +103,3 @@ animation = &"walk_down"
 visible = false
 scale = Vector2(1.47448, 0.932494)
 shape = SubResource("CapsuleShape2D_mmqxl")
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="Sprite" type="Sprite2D" parent="Area2D"]
-position = Vector2(4.83333, 2.66667)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_x55ch")
-
-[node name="sword_hit" type="Sprite2D" parent="Area2D"]
-position = Vector2(7.66667, 4.5)
-rotation = 1.08185
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_x55ch")
-
-[node name="sword" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(7.79195, 4.41199)
-rotation = 1.08185
-scale = Vector2(0.5, 0.5)
-shape = SubResource("RectangleShape2D_5hads")
