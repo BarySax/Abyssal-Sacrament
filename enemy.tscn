@@ -1,7 +1,43 @@
-[gd_scene load_steps=4 format=3 uid="uid://bob7nm5tjgd57"]
+[gd_scene load_steps=9 format=3 uid="uid://bob7nm5tjgd57"]
 
-[ext_resource type="Texture2D" uid="uid://kjrbmsvvyb2k" path="res://icon.svg" id="1_eujp4"]
 [ext_resource type="Script" path="res://enemy.gd" id="1_fj2ie"]
+[ext_resource type="Texture2D" uid="uid://c1mhktahubo4j" path="res://assets/NinjaAdventure/Actor/Monsters/Spirit/SpriteSheet.png" id="2_1ygxp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fj31a"]
+atlas = ExtResource("2_1ygxp")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fy73w"]
+atlas = ExtResource("2_1ygxp")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0ro5"]
+atlas = ExtResource("2_1ygxp")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wunj"]
+atlas = ExtResource("2_1ygxp")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dcolf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fj31a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fy73w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r0ro5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8wunj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ovwm6"]
 
@@ -10,9 +46,11 @@ scale = Vector2(2, 2)
 script = ExtResource("1_fj2ie")
 speed = 100
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.155, 0.155)
-texture = ExtResource("1_eujp4")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(4.76837e-07, 4.76837e-07)
+scale = Vector2(1.25, 1.25)
+sprite_frames = SubResource("SpriteFrames_dcolf")
+frame_progress = 0.224854
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ovwm6")

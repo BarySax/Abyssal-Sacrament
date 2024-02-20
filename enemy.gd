@@ -11,6 +11,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	$AnimatedSprite2D.play()
 	var velocity = Vector2.ZERO
 	player_position = player.position
 	target_position = (player_position - position).normalized()
