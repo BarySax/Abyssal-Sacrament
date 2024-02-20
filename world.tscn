@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://dn3n3y7y8kjbn"]
+[gd_scene load_steps=5 format=3 uid="uid://dn3n3y7y8kjbn"]
 
 [ext_resource type="PackedScene" uid="uid://dv4irim4lb2rg" path="res://player.tscn" id="1_n7nyt"]
 [ext_resource type="PackedScene" uid="uid://bob7nm5tjgd57" path="res://enemy.tscn" id="2_j7fyq"]
+[ext_resource type="Script" path="res://stamina_bar.gd" id="3_wi3yt"]
+
+[sub_resource type="Theme" id="Theme_ftnc4"]
+default_font_size = 9
 
 [node name="World" type="Node2D"]
 
@@ -9,6 +13,16 @@
 position = Vector2(6, 1)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="ProgressBar" type="ProgressBar" parent="Player/Camera2D"]
+offset_left = 44.0
+offset_top = -78.0
+offset_right = 138.0
+offset_bottom = -65.0
+theme = SubResource("Theme_ftnc4")
+fill_mode = 1
+show_percentage = false
+script = ExtResource("3_wi3yt")
 
 [node name="Enemy" parent="." instance=ExtResource("2_j7fyq")]
 position = Vector2(-698, -509)

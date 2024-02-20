@@ -8,7 +8,7 @@
 [node name="Enemy" type="Area2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_fj2ie")
-speed = 100
+see_range = 500
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.155, 0.155)

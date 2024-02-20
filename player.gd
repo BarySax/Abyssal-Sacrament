@@ -5,8 +5,11 @@ signal hit
 @export var running_speed = 1000 # speed en pixel/sec
 @export var stamina = 100
 var max_stamina = stamina
+var stamina_up = false
 var speed = walking_speed
 var running = false
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -15,21 +18,26 @@ func _process(delta):
 	var velocity = Vector2.ZERO # The player's movement vector.
 	if stamina != 100:
 		print(stamina)
+	if stamina >= 100:
+		stamina_up = false
+	if stamina_up == true:
+		stamina += 1
 	if Input.is_action_just_pressed("run") and stamina > 0:
 		if running == false:
 			running = true
 			speed = running_speed
+			stamina_up = false
 			print("running")
 		else:
 			running = false
 			speed = walking_speed
-			stamina = max_stamina
+			stamina_up = true
 			print("not running")
 	if running == true:
 		stamina -= 0.5
 		if stamina <= 0:
 			running = false
-			stamina = max_stamina
+			stamina_up = true
 			speed = walking_speed
 	if Input.is_action_pressed("walk_right"):
 		velocity.x += 1

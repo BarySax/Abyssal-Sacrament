@@ -2,3 +2,6 @@ res://world.tscn
 res://player.tscn
 res://enemy.tscn
 res://enemy.gd
+res://stamina_bar.gd
+res://control.tscn
+res://player.gd
