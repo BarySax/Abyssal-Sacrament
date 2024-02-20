@@ -1,5 +1,7 @@
 extends Area2D
 @export var speed = 300
+@export var attack_range = 66.6
+@export var see_range = 300
 var player_position
 var target_position
 @onready var player = get_parent().get_node("Player")
@@ -15,6 +17,8 @@ func _process(delta):
 	player_position = player.position
 	target_position = (player_position - position).normalized()
 	
-	if position.distance_to(player_position) > 3:
+	if position.distance_to(player_position) < attack_range or position.distance_to(player_position) > see_range:
+		velocity = 0
+	else:
 		velocity = target_position * speed
 		position += velocity * delta

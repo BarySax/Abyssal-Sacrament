@@ -1,13 +1,12 @@
-<<<<<<< HEAD:.godot/editor/create_recent.Node
+ProgressBar
+Sprite2D
+Node2D
 CollisionShape2D
-=======
 Area2D
 CollisionShape2D
 TextureRect
 AnimatedSprite2D
 Node
->>>>>>> 56d16190cffb52c24b3b8d055d502c6e7693ec05:jeu/.godot/editor/create_recent.Node
-Sprite2D
 Area2D
 Camera2D
 AnimatedSprite2D
