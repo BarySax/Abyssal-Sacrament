@@ -7,8 +7,19 @@ var speed = walking_speed
 var running = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
+<<<<<<< HEAD:player.gd
 	pass
+=======
+	screen_size = get_viewport_rect().size
+	#hide()
+
+
+var velocity = Vector2.ZERO # The player's movement vector.
+
+
+>>>>>>> 56d16190cffb52c24b3b8d055d502c6e7693ec05:jeu/player.gd
 func _process(delta):
+	speed = 400
 	var velocity = Vector2.ZERO # The player's movement vector.
 	if Input.is_action_just_pressed("run"):
 		if running == false:
@@ -27,14 +38,15 @@ func _process(delta):
 		velocity.y -= 1
 	if Input.is_action_pressed("walk_down"):
 		velocity.y += 1
-	
+	if Input.is_action_pressed("run"):
+		speed = 800
+
 	
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
 		$AnimatedSprite2D.play()
 	else:
 		$AnimatedSprite2D.stop()
-	
 
 	
 	position += velocity * delta
@@ -49,4 +61,8 @@ func _process(delta):
 		#$AnimatedSprite2D.flip_v = velocity.y > 0
 	elif velocity.y > 0:
 		$AnimatedSprite2D.animation = "walk_down"
+<<<<<<< HEAD:player.gd
 
+=======
+	
+>>>>>>> 56d16190cffb52c24b3b8d055d502c6e7693ec05:jeu/player.gd
