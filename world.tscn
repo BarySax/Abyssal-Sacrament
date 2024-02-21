@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dn3n3y7y8kjbn"]
+[gd_scene load_steps=7 format=3 uid="uid://dn3n3y7y8kjbn"]
 
 [ext_resource type="PackedScene" uid="uid://dv4irim4lb2rg" path="res://player.tscn" id="1_n7nyt"]
 [ext_resource type="PackedScene" uid="uid://bob7nm5tjgd57" path="res://enemy.tscn" id="2_j7fyq"]
 [ext_resource type="Script" path="res://life_bar.gd" id="3_mmiwf"]
 [ext_resource type="Script" path="res://stamina_bar.gd" id="3_wi3yt"]
+[ext_resource type="Texture2D" uid="uid://kjrbmsvvyb2k" path="res://icon.svg" id="5_xu6pk"]
 
 [sub_resource type="Theme" id="Theme_ftnc4"]
 default_font_size = 9
@@ -35,3 +36,7 @@ script = ExtResource("3_mmiwf")
 
 [node name="Enemy" parent="." instance=ExtResource("2_j7fyq")]
 position = Vector2(-698, -509)
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(314, 235)
+texture = ExtResource("5_xu6pk")
