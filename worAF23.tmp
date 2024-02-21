@@ -12,6 +12,10 @@ default_font_size = 9
 
 [node name="Player" parent="." instance=ExtResource("1_n7nyt")]
 position = Vector2(6, 1)
+walking_speed = 400
+running_speed = 1000
+stamina = 100
+hp = 100
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 

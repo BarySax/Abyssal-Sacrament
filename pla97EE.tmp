@@ -145,6 +145,10 @@ height = 25.6
 [node name="Player" type="Area2D"]
 scale = Vector2(4, 4)
 script = ExtResource("1_q75ff")
+walking_speed = null
+running_speed = null
+stamina = null
+hp = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8ww31")
@@ -158,6 +162,4 @@ shape = SubResource("CapsuleShape2D_8yheg")
 script = ExtResource("3_l0fyt")
 
 [node name="Sprite2D" type="Sprite2D" parent="Attack_rotation"]
-visible = false
-scale = Vector2(0.2, 0.084375)
 texture = ExtResource("4_dkifx")

@@ -158,6 +158,4 @@ shape = SubResource("CapsuleShape2D_8yheg")
 script = ExtResource("3_l0fyt")
 
 [node name="Sprite2D" type="Sprite2D" parent="Attack_rotation"]
-visible = false
-scale = Vector2(0.2, 0.084375)
 texture = ExtResource("4_dkifx")
