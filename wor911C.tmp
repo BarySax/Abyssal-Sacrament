@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dn3n3y7y8kjbn"]
+[gd_scene load_steps=7 format=3 uid="uid://dn3n3y7y8kjbn"]
 
 [ext_resource type="PackedScene" uid="uid://dv4irim4lb2rg" path="res://player.tscn" id="1_n7nyt"]
 [ext_resource type="PackedScene" uid="uid://bob7nm5tjgd57" path="res://enemy.tscn" id="2_j7fyq"]
@@ -9,14 +9,12 @@
 [sub_resource type="Theme" id="Theme_ftnc4"]
 default_font_size = 9
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rktgm"]
-size = Vector2(120, 110)
-
 [node name="World" type="Node2D"]
-y_sort_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_n7nyt")]
 position = Vector2(6, 1)
+walking_speed = 20000
+running_speed = 40000
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
@@ -41,12 +39,6 @@ script = ExtResource("3_mmiwf")
 [node name="Enemy" parent="." instance=ExtResource("2_j7fyq")]
 position = Vector2(-698, -509)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(314, 232)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("RectangleShape2D_rktgm")
-
-[node name="Icon" type="Sprite2D" parent="StaticBody2D/CollisionShape2D"]
-position = Vector2(0, 3)
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(314, 235)
 texture = ExtResource("5_xu6pk")

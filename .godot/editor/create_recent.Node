@@ -1,13 +1,13 @@
+StaticBody2D
+Area2D
+CollisionShape2D
+CharacterBody2D
 Sprite2D
 Node2D
 ProgressBar
 Control
-CollisionShape2D
-Area2D
-CollisionShape2D
 TextureRect
 AnimatedSprite2D
 Node
-Area2D
 Camera2D
 AnimatedSprite2D

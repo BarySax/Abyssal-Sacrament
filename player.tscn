@@ -155,17 +155,13 @@ animations = [{
 radius = 8.63309
 height = 25.6
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="CharacterBody2D"]
 scale = Vector2(4, 4)
 script = ExtResource("1_q75ff")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8ww31")
 animation = &"attack_left"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(0.695, 0.695)
-shape = SubResource("CapsuleShape2D_8yheg")
 
 [node name="Attack_rotation" type="Node2D" parent="."]
 script = ExtResource("3_l0fyt")
@@ -174,3 +170,7 @@ script = ExtResource("3_l0fyt")
 visible = false
 scale = Vector2(0.2, 0.084375)
 texture = ExtResource("4_dkifx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.695, 0.695)
+shape = SubResource("CapsuleShape2D_8yheg")
