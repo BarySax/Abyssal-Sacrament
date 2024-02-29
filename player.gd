@@ -167,7 +167,7 @@ func _physics_process(delta):
 			$AnimatedSprite2D.flip_h = 1
 			attack_direction = "Down_Right"
 					
-			if Input.is_action_just_pressed("attack"):
+		if Input.is_action_just_pressed("attack"):
 					print(attack_direction)
 				
 	move_and_slide()
