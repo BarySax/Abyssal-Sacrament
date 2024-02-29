@@ -17,6 +17,10 @@ y_sort_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_n7nyt")]
 position = Vector2(6, 1)
+walking_speed = 20000
+running_speed = 40000
+stamina = 100
+hp = 100
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 

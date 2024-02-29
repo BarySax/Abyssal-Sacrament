@@ -1,8 +1,10 @@
+AnimationTree
+Sprite2D
+AnimationPlayer
 StaticBody2D
 Area2D
 CollisionShape2D
 CharacterBody2D
-Sprite2D
 Node2D
 ProgressBar
 Control
