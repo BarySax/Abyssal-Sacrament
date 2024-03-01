@@ -1,10 +1,10 @@
+CharacterBody2D
 AnimationTree
 Sprite2D
 AnimationPlayer
 StaticBody2D
 Area2D
 CollisionShape2D
-CharacterBody2D
 Node2D
 ProgressBar
 Control
@@ -12,4 +12,3 @@ TextureRect
 AnimatedSprite2D
 Node
 Camera2D
-AnimatedSprite2D

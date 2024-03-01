@@ -4,3 +4,4 @@ res://enemy.tscn
 res://control.tscn
 res://player.gd
 res://life_bar.gd
+res://enemy.gd

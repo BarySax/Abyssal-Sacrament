@@ -1,4 +1,4 @@
-extends Area2D
+extends CharacterBody2D
 @export var speed = 300
 @export var attack_range = 66.6
 @export var see_range = 300
@@ -13,7 +13,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
 	var velocity = Vector2.ZERO
 	player_position = player.position
 	target_position = (player_position - position).normalized()
@@ -23,5 +23,6 @@ func _process(delta):
 		if position.distance_to(player_position) < attack_range:
 			velocity = 0
 		else:
-			velocity = target_position * speed
+			velocity = target_position * speed 
 			position += velocity * delta
+	move_and_slide()

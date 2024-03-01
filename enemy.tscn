@@ -5,7 +5,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ovwm6"]
 
-[node name="Enemy" type="Area2D"]
+[node name="Enemy" type="CharacterBody2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_fj2ie")
 see_range = 500
