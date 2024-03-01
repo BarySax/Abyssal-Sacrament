@@ -1,7 +1,11 @@
-res://player.tscn
 res://world.tscn
+res://player.tscn
 res://enemy.tscn
 res://control.tscn
-res://player.gd
-res://life_bar.gd
 res://enemy.gd
+res://EnemyEffect.gd
+res://enemy_effect.tscn
+res://hit_and_hurt_boxes/hurt_box.tscn
+res://hit_and_hurt_boxes/hit_box.tscn
+res://Enemy_rotation.gd
+res://player.gd

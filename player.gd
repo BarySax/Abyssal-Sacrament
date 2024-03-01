@@ -16,7 +16,7 @@ var speed = walking_speed
 var running = false
 var turning = false
 var attack_rotation
-var attack_direction = Vector2(0,0)
+var attack_direction = Vector2.ZERO
 enum {
 	Move,
 	Attack,
@@ -30,6 +30,8 @@ func _physics_process(delta):
 			move_state(delta)
 		Attack:
 			attack_state(delta)
+	if hp <= 0:
+		queue_free()
 	if Input.is_action_just_pressed("action_one"):
 		if turning == false:
 			turning = true
