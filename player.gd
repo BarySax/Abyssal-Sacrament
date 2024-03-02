@@ -50,33 +50,33 @@ func _physics_process(delta):
 		if attack_rotation <= 22 and attack_rotation >= -22:
 			attack_direction = Vector2(1,0)
 		elif attack_rotation <= 67 and attack_rotation >= 23:
-			attack_direction = "Down_Right"
+			attack_direction = Vector2(0.71,-0.71)
 		elif attack_rotation <= 112  and attack_rotation >= 68:
 			attack_direction = Vector2(0,1)
 		elif attack_rotation <= 157  and attack_rotation >= 113:
-			attack_direction = "Down_Left"
+			attack_direction = Vector2(-0.71,-0.71)
 		elif attack_rotation <= 202  and attack_rotation >= 158:
 			attack_direction = Vector2(-1,0)
 		elif attack_rotation <= 247  and attack_rotation >= 203:
-			attack_direction = "Up_Left"
+			attack_direction = Vector2(-0.71,0.71)
 		elif attack_rotation <= 292  and attack_rotation >= 248:
 			attack_direction = Vector2(0,-1)
 		elif attack_rotation <= 337  and attack_rotation >= 293:
-			attack_direction = "Up_Right"
+			attack_direction = Vector2(0.71,0.71)
 		elif attack_rotation >= -67 and attack_rotation <= -23:
-			attack_direction = "Up_Right"
+			attack_direction = Vector2(0.71,0.71)
 		elif attack_rotation >= -112  and attack_rotation <= -68:
 			attack_direction = Vector2(0,-1)
 		elif attack_rotation >= -157  and attack_rotation <= -113:
-			attack_direction = "Up_Left"
+			attack_direction = Vector2(-0.71,0.71)
 		elif attack_rotation >= -202  and attack_rotation <= -158:
 			attack_direction = Vector2(-1,0)
 		elif attack_rotation >= -247  and attack_rotation <= -203:
-			attack_direction = "Down_Left"
+			attack_direction = Vector2(-0.71,-0.71)
 		elif attack_rotation >= -292  and attack_rotation <= -248:
 			attack_direction = Vector2(0,1)
 		elif attack_rotation >= -337  and attack_rotation <= -293:
-			attack_direction = "Down_Right"
+			attack_direction = Vector2(0.71,-0.71)
 		print(attack_direction)
 		animationTree.set("parameters/Idle/blend_position", attack_direction)
 		animationTree.set("parameters/Attack/blend_position", attack_direction)
@@ -90,6 +90,7 @@ func move_state(delta):
 		print(stamina)
 	if stamina >= 100:
 		stamina_up = false
+		stamina = 100
 	if stamina_up == true:
 		stamina += 1
 	if Input.is_action_just_pressed("run") and stamina > 0:
