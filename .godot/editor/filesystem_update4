@@ -1,6 +1,8 @@
-res://world.tscn
-res://player.gd
-res://player.tscn
 res://enemy.tscn
+res://enemy.gd
+res://world.tscn
+res://player.tscn
 res://hit_and_hurt_boxes/hurt_box.tscn
 res://hit_and_hurt_boxes/hit_box.tscn
+res://player.gd
+res://Enemy_rotation.gd

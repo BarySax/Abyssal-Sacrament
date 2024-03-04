@@ -127,3 +127,6 @@ func attack_state(delta):
 	
 func attack_animation_finished():
 	state = Move
+
+func _on_hurt_box_area_entered(area):
+	hp -= 20
