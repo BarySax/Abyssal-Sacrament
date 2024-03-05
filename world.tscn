@@ -1,8 +1,23 @@
+<<<<<<< HEAD
+[gd_scene load_steps=8 format=3 uid="uid://dn3n3y7y8kjbn"]
+=======
 [gd_scene load_steps=19 format=3 uid="uid://dn3n3y7y8kjbn"]
+>>>>>>> main
 
 [ext_resource type="Texture2D" uid="uid://bckcc1h5ct2ho" path="res://assets/NinjaAdventure/Backgrounds/Tilesets/TilesetNature.png" id="1_iojw4"]
 [ext_resource type="PackedScene" uid="uid://dv4irim4lb2rg" path="res://player.tscn" id="1_n7nyt"]
 [ext_resource type="PackedScene" uid="uid://bob7nm5tjgd57" path="res://enemy.tscn" id="2_j7fyq"]
+<<<<<<< HEAD
+[ext_resource type="Script" path="res://life_bar.gd" id="3_mmiwf"]
+[ext_resource type="Script" path="res://stamina_bar.gd" id="3_wi3yt"]
+[ext_resource type="Texture2D" uid="uid://kjrbmsvvyb2k" path="res://icon.svg" id="5_xu6pk"]
+
+[sub_resource type="Theme" id="Theme_ftnc4"]
+default_font_size = 9
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rktgm"]
+size = Vector2(120, 110)
+=======
 [ext_resource type="Texture2D" uid="uid://e1opijvd541l" path="res://assets/NinjaAdventure/Backgrounds/Tilesets/TilesetFloor.png" id="3_gbhv3"]
 [ext_resource type="Texture2D" uid="uid://b3fvwe6qu6mxa" path="res://assets/NinjaAdventure/Backgrounds/Tilesets/TilesetVillageAbandoned.png" id="3_jaxg7"]
 [ext_resource type="Texture2D" uid="uid://bfmpb40qb7xiq" path="res://assets/NinjaAdventure/Backgrounds/Tilesets/TilesetWater.png" id="4_xultw"]
@@ -5311,8 +5326,10 @@ texture = ExtResource("6_iydm4")
 
 [sub_resource type="TileSet" id="TileSet_mowvv"]
 sources/0 = SubResource("TileSetAtlasSource_1bdoy")
+>>>>>>> main
 
 [node name="World" type="Node2D"]
+y_sort_enabled = true
 
 [node name="terrain" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_mw068")
@@ -5336,5 +5353,35 @@ scale = Vector2(2, 2)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
+[node name="Stamina" type="ProgressBar" parent="Player/Camera2D"]
+offset_left = -140.0
+offset_top = 72.0
+offset_right = -46.0
+offset_bottom = 78.0
+theme = SubResource("Theme_ftnc4")
+fill_mode = 1
+show_percentage = false
+script = ExtResource("3_wi3yt")
+
+[node name="HP" type="ProgressBar" parent="Player/Camera2D"]
+offset_left = -141.25
+offset_top = 58.0
+offset_right = -33.25
+offset_bottom = 69.0
+show_percentage = false
+script = ExtResource("3_mmiwf")
+
 [node name="Enemy" parent="." instance=ExtResource("2_j7fyq")]
-position = Vector2(-208, 9)
+position = Vector2(-698, -509)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(314, 232)
+scale = Vector2(1.25815, 0.935525)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_rktgm")
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D/CollisionShape2D"]
+position = Vector2(0, 3)
+texture = ExtResource("5_xu6pk")

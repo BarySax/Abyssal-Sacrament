@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnqd7k3k02p4m"]
+
+[ext_resource type="Texture2D" uid="uid://dqaxqp0bu64tj" path="res://icon.svg" id="1_t5gjk"]
+
+[sub_resource type="GDScript" id="GDScript_rqdip"]
+resource_name = "enemy.gd"
+script/source = "extends Area2D
+
+@export var speed = 100
+var player_position
+var target_position
+var screen_size
+
+@onready var player = get_parent().get_node(\"Player\")
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	screen_size = get_viewport_rect().size
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	var velocity = Vector2.ZERO # The player's movement vector.
+	player_position = player.position
+	target_position = (player_position - position).normalized()
+	
+	if position.distance_to(player_position) > 3:
+		velocity = target_position * speed
+		position += velocity * delta
+		position = position.clamp(Vector2.ZERO, screen_size)
+			
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bdsay"]
+size = Vector2(64, 64)
+
+[node name="Enemy" type="Area2D"]
+script = SubResource("GDScript_rqdip")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_t5gjk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bdsay")
