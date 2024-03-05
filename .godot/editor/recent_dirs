@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 res://assets/NinjaAdventure/Actor/Characters/GoldKnight
 res://assets/NinjaAdventure/Actor/Boss/GiantSpirit
 res://hit_and_hurt_boxes
 res://assets/NinjaAdventure/Actor/Characters/Skeleton
+=======
+res://assets/NinjaAdventure/Backgrounds/Tilesets
+res://assets/NinjaAdventure/Actor/Monsters/Spirit
+>>>>>>> main
 res://
 res://assets/NinjaAdventure/Actor/Characters/RedDemon
 res://assets/NinjaAdventure/Actor/Characters/Knight
