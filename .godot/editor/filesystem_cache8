@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1710160114
+::res://::1710160715
 attack_rotation.gd::GDScript::-1::1710159901::0::1::::<>Node2D<>::
 control.tscn::PackedScene::1768208068135398853::1710159901::0::1::::<><>::res://stamina_bar.gd
 enemy.gd::GDScript::-1::1710160039::0::1::::<>CharacterBody2D<>::
@@ -11,7 +11,7 @@ player.gd::GDScript::-1::1710160075::0::1::::<>CharacterBody2D<>::
 player.tscn::PackedScene::8693611256841083916::1710159901::0::1::::<><>::res://player.gd<>res://attack_rotation.gd<>uid://kjrbmsvvyb2k::::res://icon.svg<>uid://b5d48k2tjpys4::::res://assets/NinjaAdventure/Actor/Characters/Knight/SpriteSheet.png<>uid://c6afjtk0jmbqb::::res://hit_and_hurt_boxes/hit_box.tscn<>uid://b61ilsdtyy0y7::::res://hit_and_hurt_boxes/hurt_box.tscn
 README.md::TextFile::-1::1706640358::0::1::::<><>::
 stamina_bar.gd::GDScript::-1::1710159901::0::1::::<>ProgressBar<>::
-world.tscn::PackedScene::8130360229751796531::1710160000::0::1::::<><>::uid://bckcc1h5ct2ho::::res://assets/NinjaAdventure/Backgrounds/Tilesets/TilesetNature.png<>uid://dv4irim4lb2rg::::res://player.tscn<>uid://bob7nm5tjgd57::::res://enemy.tscn<>res://life_bar.gd<>res://stamina_bar.gd<>uid://kjrbmsvvyb2k::::res://icon.svg
+world.tscn::PackedScene::8130360229751796531::1710160695::0::1::::<><>::uid://dv4irim4lb2rg::::res://player.tscn<>uid://bob7nm5tjgd57::::res://enemy.tscn<>res://life_bar.gd<>res://stamina_bar.gd<>uid://kjrbmsvvyb2k::::res://icon.svg
 ::res://assets/::1708550539
 IMG_0641.png::CompressedTexture2D::3109326431635103005::1708550509::1708550539::1::::<><>::
 sword1.png::CompressedTexture2D::9001586638251686450::1708442540::1708442540::1::::<><>::
