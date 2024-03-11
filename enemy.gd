@@ -27,7 +27,6 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-<<<<<<< HEAD
 func _physics_process(delta):
 	match state:
 		Stand:
@@ -38,11 +37,6 @@ func _physics_process(delta):
 			attack_state(delta)
 	if hp <= 0:
 		queue_free()
-=======
-func _process(delta):
-	$AnimatedSprite2D.play()
-	var velocity = Vector2.ZERO
->>>>>>> main
 	player_position = player.position
 	target_position = (player_position - position).normalized()
 	if position.distance_to(player_position) < see_range:

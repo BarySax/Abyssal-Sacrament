@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 [gd_scene load_steps=55 format=3 uid="uid://bob7nm5tjgd57"]
 
 [ext_resource type="Script" path="res://enemy.gd" id="1_fj2ie"]
@@ -6,48 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://b61ilsdtyy0y7" path="res://hit_and_hurt_boxes/hurt_box.tscn" id="3_xa54d"]
 [ext_resource type="Script" path="res://Enemy_rotation.gd" id="4_02nyv"]
 [ext_resource type="PackedScene" uid="uid://c6afjtk0jmbqb" path="res://hit_and_hurt_boxes/hit_box.tscn" id="5_8lvtn"]
-=======
-[gd_scene load_steps=9 format=3 uid="uid://bob7nm5tjgd57"]
-
-[ext_resource type="Script" path="res://enemy.gd" id="1_fj2ie"]
-[ext_resource type="Texture2D" uid="uid://c1mhktahubo4j" path="res://assets/NinjaAdventure/Actor/Monsters/Spirit/SpriteSheet.png" id="2_1ygxp"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fj31a"]
-atlas = ExtResource("2_1ygxp")
-region = Rect2(0, 48, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fy73w"]
-atlas = ExtResource("2_1ygxp")
-region = Rect2(48, 48, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r0ro5"]
-atlas = ExtResource("2_1ygxp")
-region = Rect2(16, 48, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8wunj"]
-atlas = ExtResource("2_1ygxp")
-region = Rect2(32, 48, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_dcolf"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fj31a")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fy73w")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r0ro5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8wunj")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
->>>>>>> main
 
 [sub_resource type="Animation" id="Animation_o7p72"]
 length = 0.001
@@ -835,7 +792,6 @@ scale = Vector2(4, 4)
 script = ExtResource("1_fj2ie")
 see_range = 500
 
-<<<<<<< HEAD
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_x67q6")
 hframes = 4
@@ -880,13 +836,6 @@ collision_mask = 4
 [node name="CollisionShape2D" parent="Marker2D/HitBox" index="0"]
 shape = SubResource("CapsuleShape2D_7fj6j")
 disabled = false
-=======
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(4.76837e-07, 4.76837e-07)
-scale = Vector2(1.25, 1.25)
-sprite_frames = SubResource("SpriteFrames_dcolf")
-frame_progress = 0.224854
->>>>>>> main
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4)
