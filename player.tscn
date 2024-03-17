@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://dv4irim4lb2rg"]
+[gd_scene load_steps=72 format=3 uid="uid://dv4irim4lb2rg"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_q75ff"]
 [ext_resource type="Script" path="res://attack_rotation.gd" id="3_l0fyt"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b5d48k2tjpys4" path="res://assets/NinjaAdventure/Actor/Characters/Knight/SpriteSheet.png" id="4_jfxnq"]
 [ext_resource type="PackedScene" uid="uid://c6afjtk0jmbqb" path="res://hit_and_hurt_boxes/hit_box.tscn" id="5_ugosg"]
 [ext_resource type="PackedScene" uid="uid://b61ilsdtyy0y7" path="res://hit_and_hurt_boxes/hurt_box.tscn" id="6_1n6sw"]
+[ext_resource type="Texture2D" uid="uid://clexqj2fwyly4" path="res://assets/NinjaAdventure/Actor/Characters/Shadow.png" id="7_5cxf8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8yheg"]
 radius = 7.4074
@@ -1002,6 +1003,11 @@ collision_mask = 32
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
 scale = Vector2(0.993931, 0.882468)
 shape = SubResource("CapsuleShape2D_c7cve")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(0, 7.5)
+texture = ExtResource("7_5cxf8")
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 

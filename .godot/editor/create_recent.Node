@@ -1,28 +1,14 @@
-<<<<<<< HEAD
-Marker2D
-=======
 TileMap
+Sprite2D
+Marker2D
+Node2D
 AnimatedSprite2D
 CollisionShape2D
 Area2D
 CollisionShape2D
 TextureRect
 Node
->>>>>>> main
-Sprite2D
 AnimationTree
 AnimationPlayer
-Node2D
 CollisionShape2D
 Area2D
-<<<<<<< HEAD
-AnimatedSprite2D
-CharacterBody2D
-StaticBody2D
-ProgressBar
-Control
-TextureRect
-Node
-=======
-Camera2D
->>>>>>> main

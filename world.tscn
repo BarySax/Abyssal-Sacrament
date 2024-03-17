@@ -1,16 +1,29 @@
-[gd_scene load_steps=8 format=3 uid="uid://dn3n3y7y8kjbn"]
+[gd_scene load_steps=12 format=3 uid="uid://dn3n3y7y8kjbn"]
 
 [ext_resource type="PackedScene" uid="uid://dv4irim4lb2rg" path="res://player.tscn" id="1_n7nyt"]
 [ext_resource type="PackedScene" uid="uid://bob7nm5tjgd57" path="res://enemy.tscn" id="2_j7fyq"]
 [ext_resource type="Script" path="res://life_bar.gd" id="3_mmiwf"]
 [ext_resource type="Script" path="res://stamina_bar.gd" id="3_wi3yt"]
+[ext_resource type="Script" path="res://Attack_show.gd" id="4_5fihj"]
 [ext_resource type="Texture2D" uid="uid://kjrbmsvvyb2k" path="res://icon.svg" id="5_xu6pk"]
+[ext_resource type="Texture2D" uid="uid://pl24khv2nagn" path="res://assets/ground.png" id="7_vo15o"]
 
 [sub_resource type="Theme" id="Theme_ftnc4"]
 default_font_size = 9
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rktgm"]
 size = Vector2(120, 110)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1lbup"]
+texture = ExtResource("7_vo15o")
+texture_region_size = Vector2i(32, 16)
+3:0/0 = 0
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_sirgq"]
+tile_shape = 1
+tile_size = Vector2i(32, 16)
+sources/4 = SubResource("TileSetAtlasSource_1lbup")
 
 [node name="World" type="Node2D"]
 y_sort_enabled = true
@@ -38,6 +51,17 @@ offset_bottom = 69.0
 show_percentage = false
 script = ExtResource("3_mmiwf")
 
+[node name="Attack_show" type="ProgressBar" parent="Player/Camera2D"]
+offset_left = -138.0
+offset_top = 44.25
+offset_right = -30.0
+offset_bottom = 55.25
+scale = Vector2(0.104332, 1.01278)
+max_value = 1.0
+step = 1.0
+show_percentage = false
+script = ExtResource("4_5fihj")
+
 [node name="Enemy" parent="." instance=ExtResource("2_j7fyq")]
 position = Vector2(-698, -509)
 
@@ -52,3 +76,7 @@ shape = SubResource("RectangleShape2D_rktgm")
 [node name="Icon" type="Sprite2D" parent="StaticBody2D/CollisionShape2D"]
 position = Vector2(0, 3)
 texture = ExtResource("5_xu6pk")
+
+[node name="Ground" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_sirgq")
+format = 2
