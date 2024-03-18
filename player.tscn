@@ -1,6 +1,7 @@
-[gd_scene load_steps=72 format=3 uid="uid://dv4irim4lb2rg"]
+[gd_scene load_steps=73 format=3 uid="uid://dv4irim4lb2rg"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_q75ff"]
+[ext_resource type="Texture2D" uid="uid://bok0fh2nh1gy1" path="res://assets/NinjaAdventure/Items/Weapons/Lance2/Sprite.png" id="2_lkprg"]
 [ext_resource type="Script" path="res://attack_rotation.gd" id="3_l0fyt"]
 [ext_resource type="Texture2D" uid="uid://kjrbmsvvyb2k" path="res://icon.svg" id="4_dkifx"]
 [ext_resource type="Texture2D" uid="uid://b5d48k2tjpys4" path="res://assets/NinjaAdventure/Actor/Characters/Knight/SpriteSheet.png" id="4_jfxnq"]
@@ -943,6 +944,13 @@ height = 20.0
 scale = Vector2(4, 4)
 collision_layer = 2
 script = ExtResource("1_q75ff")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = 2
+y_sort_enabled = true
+position = Vector2(5.24996, 3.5)
+rotation = 1.5708
+texture = ExtResource("2_lkprg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("4_jfxnq")

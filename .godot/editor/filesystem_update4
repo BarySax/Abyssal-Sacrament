@@ -1,3 +1,5 @@
 res://world.tscn
 res://player.tscn
-res://Attack_show.gd
+res://enemy.tscn
+res://Enemy_rotation.gd
+res://player.gd

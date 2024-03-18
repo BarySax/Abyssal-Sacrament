@@ -1,6 +1,15 @@
-res://assets/NinjaAdventure/Actor/Characters
+res://assets/NinjaAdventure/Items/Weapons/Lance2
+res://assets/NinjaAdventure/Actor/Characters/Knight
+res://assets/NinjaAdventure/Actor/Characters/RedCamouflage
+res://assets/NinjaAdventure/Actor/Characters/Inspector
+res://assets/NinjaAdventure/Actor/Characters/Eskimo
+res://assets/NinjaAdventure/Actor/Characters/BlackSorcerer
+res://assets/NinjaAdventure/Actor/Characters/Child
 res://assets/NinjaAdventure/Actor/Characters/Noble
+res://assets/NinjaAdventure/Actor/Characters/Monk
+res://assets/NinjaAdventure/Actor/Monsters/Dragon
 res://
+res://assets/NinjaAdventure/Actor/Characters
 <<<<<<< HEAD
 res://assets/NinjaAdventure/Actor/Characters/GoldKnight
 res://assets/NinjaAdventure/Actor/Boss/GiantSpirit
@@ -11,8 +20,3 @@ res://assets/NinjaAdventure/Backgrounds/Tilesets
 res://assets/NinjaAdventure/Actor/Monsters/Spirit
 >>>>>>> main
 res://assets/NinjaAdventure/Actor/Characters/RedDemon
-res://assets/NinjaAdventure/Actor/Characters/Knight
-res://assets/16x16-RPG-characters/sprites/new-style
-res://assets/NinjaAdventure/Actor/Characters/GoldKnight/SeparateAnim
-res://assets/NinjaAdventure/Actor/Characters/BlueSamurai
-res://assets/NinjaAdventure/Actor/Characters/WhiteFighter
