@@ -17,6 +17,14 @@ var running = false
 var turning = false
 var attack_rotation
 var attack_direction = Vector2.ZERO
+var attack_number = 0
+var attack_name
+var chosen_attack_one = "Attack"
+var chosen_attack_two = "Attack"
+var chosen_attack_three = "Attack"
+var chosen_attack_four = "Attack"
+var chosen_attack_five = "Attack"
+var old_attack = -1
 enum {
 	Move,
 	Attack,
@@ -32,13 +40,23 @@ func _physics_process(delta):
 			attack_state(delta)
 	if hp <= 0:
 		queue_free()
-	if Input.is_action_just_pressed("action_one"):
-		if turning == false:
+	if Input.is_action_just_pressed("start_attack"):
+		if Input.is_action_just_pressed("action_one"):
+			attack_number = 1
+		if Input.is_action_just_pressed("action_two"):
+			attack_number = 2
+		if Input.is_action_just_pressed("action_three"):
+			attack_number = 3
+		if Input.is_action_just_pressed("action_four"):
+			attack_number = 4
+		if Input.is_action_just_pressed("action_five"):
+			attack_number = 5
+		if attack_number != old_attack:
+			old_attack = attack_number
 			turning = true
-			print("turning")
 		else:
 			turning = false
-			print("not turning")
+			old_attack = -1
 	if turning == true:
 		attack_rotation = get_node("Attack_rotation").get_rotation()
 		attack_rotation = rad_to_deg(attack_rotation)
@@ -123,7 +141,17 @@ func move_state(delta):
 		velocity = Vector2.ZERO
 		animationState.travel("Idle")
 func attack_state(delta):
-	animationState.travel("Attack")
+	if attack_number == 1:
+		attack_name = chosen_attack_one
+	if attack_number == 2:
+		attack_name = chosen_attack_two
+	if attack_number == 3:
+		attack_name = chosen_attack_three
+	if attack_number == 4:
+		attack_name = chosen_attack_four
+	if attack_number == 5:
+		attack_name = chosen_attack_five
+	animationState.travel(attack_name)
 	
 func attack_animation_finished():
 	state = Move

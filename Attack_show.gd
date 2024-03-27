@@ -7,8 +7,8 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if player.turning == true:
-		value = 1
-	else:
-		value = 0
+func _process(_delta):
+	var player_number = player.attack_number
+	if player.turning == false:
+		player_number = 0
+	value = player_number
