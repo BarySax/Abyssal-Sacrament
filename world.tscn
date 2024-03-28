@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dn3n3y7y8kjbn"]
+[gd_scene load_steps=16 format=3 uid="uid://dn3n3y7y8kjbn"]
 
 [ext_resource type="PackedScene" uid="uid://dv4irim4lb2rg" path="res://player.tscn" id="1_n7nyt"]
 [ext_resource type="PackedScene" uid="uid://bob7nm5tjgd57" path="res://enemy.tscn" id="2_j7fyq"]
@@ -7,6 +7,9 @@
 [ext_resource type="Script" path="res://Attack_show.gd" id="4_5fihj"]
 [ext_resource type="Texture2D" uid="uid://kjrbmsvvyb2k" path="res://icon.svg" id="5_xu6pk"]
 [ext_resource type="Texture2D" uid="uid://pl24khv2nagn" path="res://assets/ground.png" id="7_vo15o"]
+[ext_resource type="PackedScene" uid="uid://clffp7jwe3d71" path="res://pnj.tscn" id="8_48gts"]
+[ext_resource type="PackedScene" uid="uid://bdbdavemulkay" path="res://actionable.tscn" id="9_tgepo"]
+[ext_resource type="Resource" uid="uid://fhe7i00lp17p" path="res://test.dialogue" id="10_h85gw"]
 
 [sub_resource type="Theme" id="Theme_ftnc4"]
 default_font_size = 9
@@ -24,6 +27,9 @@ texture_region_size = Vector2i(32, 16)
 tile_shape = 1
 tile_size = Vector2i(32, 16)
 sources/4 = SubResource("TileSetAtlasSource_1lbup")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_shsuy"]
+size = Vector2(21, 18)
 
 [node name="World" type="Node2D"]
 y_sort_enabled = true
@@ -86,3 +92,14 @@ layer_0/tile_data = PackedInt32Array(-5832739, 4, 0, -5767203, 4, 0, -5701667, 4
 
 [node name="Enemy2" parent="." instance=ExtResource("2_j7fyq")]
 position = Vector2(-1889.71, 1345.46)
+
+[node name="Sprite2D" parent="." instance=ExtResource("8_48gts")]
+position = Vector2(185, -136)
+
+[node name="actionable" parent="Sprite2D" instance=ExtResource("9_tgepo")]
+dialogue_resource = ExtResource("10_h85gw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/actionable"]
+position = Vector2(-0.5, -1)
+scale = Vector2(3.73892, 4.52209)
+shape = SubResource("RectangleShape2D_shsuy")

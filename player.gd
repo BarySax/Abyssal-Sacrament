@@ -8,6 +8,8 @@ extends CharacterBody2D
 @onready var animationPlayer = $AnimationPlayer
 @onready var animationTree = $AnimationTree
 @onready var animationState = animationTree.get("parameters/playback")
+@onready var actionable_finder: Area2D = $SwordPivot/SwordHitBox
+
 var max_stamina = stamina
 var max_hp = hp
 var dead = false
@@ -32,6 +34,11 @@ func _physics_process(delta):
 			attack_state(delta)
 	if hp <= 0:
 		queue_free()
+	if Input.is_action_just_pressed("ui_accept"):
+		var actionable = actionable_finder.get_overlapping_areas()
+		if actionable.size() > 0:
+			actionable[0].action()
+		
 	if Input.is_action_just_pressed("action_one"):
 		if turning == false:
 			turning = true

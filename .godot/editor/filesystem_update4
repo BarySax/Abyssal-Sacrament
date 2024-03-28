@@ -1,5 +1,9 @@
 res://world.tscn
+res://world.gd
+res://player.gd
 res://player.tscn
 res://enemy.tscn
-res://Enemy_rotation.gd
-res://player.gd
+res://button.tscn
+res://pnj.tscn
+res://actionable.tscn
+res://actionable.gd

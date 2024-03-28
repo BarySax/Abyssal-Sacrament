@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdbdavemulkay"]
+
+[ext_resource type="Script" path="res://actionable.gd" id="1_4v8xs"]
+
+[node name="actionable" type="Area2D"]
+collision_layer = 64
+script = ExtResource("1_4v8xs")

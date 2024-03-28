@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://clffp7jwe3d71"]
+
+[ext_resource type="Texture2D" uid="uid://cdmxlifik8n78" path="res://assets/NinjaAdventure/Actor/Characters/GoldKnight/Faceset.png" id="1_5x5n5"]
+
+[node name="Sprite2D" type="Sprite2D"]
+texture = ExtResource("1_5x5n5")
