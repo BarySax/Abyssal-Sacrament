@@ -35,15 +35,21 @@ func _physics_process(delta):
 			chase_state(delta)
 		Attack:
 			attack_state(delta)
+		
 	if hp <= 0:
 		queue_free()
 	player_position = player.position
+	print(hp)
+	
 	target_position = (player_position - position).normalized()
 	if position.distance_to(player_position) < see_range:
 		state = Chase
 	if position.distance_to(player_position) < attack_range:
-		state = Attack
-	enemy_rotation = get_node("Enemy_rotation").get_rotation()
+		if player.hp > 0:
+			state = Attack
+	if player.hp > 0:
+		enemy_rotation = get_node("Enemy_rotation").get_rotation()
+	
 	enemy_rotation = rad_to_deg(enemy_rotation)
 	if enemy_rotation <= -360:
 		get_node("Enemy_rotation").set_rotation(0)
@@ -88,7 +94,10 @@ func stand_state(delta):
 	animationState.travel("idle")
 func chase_state(delta):
 	var velocity = Vector2.ZERO
-	velocity = target_position * speed 
+	if player.hp > 0:
+		velocity = target_position * speed 
+	else:
+		velocity = -target_position * speed
 	position += velocity * delta
 	animationState.travel("Walk")
 func attack_state(delta):

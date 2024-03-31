@@ -1,5 +1,5 @@
 extends ProgressBar
-@onready var player = get_parent().get_parent().get_parent().get_node("Player")
+@onready var player = get_parent().get_parent().get_parent().get_parent().get_node("Player")
 # Called when the node enters the scene tree for the first time.
 func _process(delta):
 	update()

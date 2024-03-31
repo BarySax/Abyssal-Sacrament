@@ -28,6 +28,7 @@ var old_attack = -1
 enum {
 	Move,
 	Attack,
+	Dead,
 }
 var state = Move
 func _ready():
@@ -38,8 +39,10 @@ func _physics_process(delta):
 			move_state(delta)
 		Attack:
 			attack_state(delta)
+		Dead:
+			dead_state(delta)
 	if hp <= 0:
-		queue_free()
+		state = Dead
 	if Input.is_action_just_pressed("start_attack"):
 		if Input.is_action_just_pressed("action_one"):
 			attack_number = 1
@@ -158,3 +161,5 @@ func attack_animation_finished():
 
 func _on_hurt_box_area_entered(area):
 	hp -= 20
+func dead_state(delta):
+	visible = false

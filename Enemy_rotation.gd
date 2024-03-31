@@ -11,5 +11,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	player_position = player.position
-	look_at(player_position)
+	var player_hp = player.hp
+	if player.hp > 0:
+		player_position = player.position
+		look_at(player_position)

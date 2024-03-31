@@ -1,3 +1,4 @@
+res://hit_and_hurt_boxes
 res://assets/NinjaAdventure/Items/Weapons/Rapier
 res://assets/NinjaAdventure/Actor/Characters
 res://assets/NinjaAdventure/Items/Weapons/Lance2
@@ -14,7 +15,6 @@ res://
 <<<<<<< HEAD
 res://assets/NinjaAdventure/Actor/Characters/GoldKnight
 res://assets/NinjaAdventure/Actor/Boss/GiantSpirit
-res://hit_and_hurt_boxes
 res://assets/NinjaAdventure/Actor/Characters/Skeleton
 =======
 res://assets/NinjaAdventure/Backgrounds/Tilesets
