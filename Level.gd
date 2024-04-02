@@ -1,5 +1,7 @@
-extends ProgressBar
+extends Label
 
+
+# Called when the node enters the scene tree for the first time.
 @onready var player = get_parent().get_parent().get_parent().get_parent().get_node("Player")
 # Called when the node enters the scene tree for the first time.
 func _process(delta):
@@ -8,9 +10,6 @@ func _process(delta):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func update():
-	if value != player.hp * 100 / player.max_hp:
-		if value <= player.hp * 100 / player.max_hp:
-			value += 1
-		else:
-			value -= 1
+	set_text(str(player.level))
+
 

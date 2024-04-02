@@ -5,12 +5,18 @@ extends CharacterBody2D
 @export var running_speed = 40000 # speed en pixel/sec
 @export var stamina = 100
 @export var hp = 100
+@export var xp = 0
+@export var str = 20
+@export var weapon_damage = 25
+@export var level = 0
 @onready var animationPlayer = $AnimationPlayer
 @onready var animationTree = $AnimationTree
 @onready var animationState = animationTree.get("parameters/playback")
+var damage = str + weapon_damage
 var max_stamina = stamina
 var max_hp = hp
 var dead = false
+var max_xp = 50
 var stamina_up = false
 var speed = walking_speed
 var running = false
@@ -43,6 +49,8 @@ func _physics_process(delta):
 			dead_state(delta)
 	if hp <= 0:
 		state = Dead
+	if xp >= max_xp:
+		leveling()
 	if Input.is_action_just_pressed("start_attack"):
 		if Input.is_action_just_pressed("action_one"):
 			attack_number = 1
@@ -106,6 +114,16 @@ func _physics_process(delta):
 			state = Attack
 				
 	move_and_slide()
+func leveling():
+	max_hp += 100
+	hp = max_hp
+	max_stamina += 100
+	stamina = max_stamina
+	str += 10
+	damage = str + weapon_damage
+	level += 1
+	max_xp = max_xp * 2
+	xp = 0
 func move_state(delta):		
 	if stamina != 100:
 		print(stamina)
@@ -155,7 +173,9 @@ func attack_state(delta):
 	if attack_number == 5:
 		attack_name = chosen_attack_five
 	animationState.travel(attack_name)
-	
+func continue_attack():
+	if Input.is_action_just_pressed("attack"):
+		state = Attack
 func attack_animation_finished():
 	state = Move
 
@@ -163,3 +183,4 @@ func _on_hurt_box_area_entered(area):
 	hp -= 20
 func dead_state(delta):
 	visible = false
+	velocity = Vector2.ZERO

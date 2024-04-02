@@ -17,8 +17,9 @@ config/icon="res://icon.svg"
 
 [display]
 
+window/size/mode=3
+window/stretch/mode="viewport"
 mouse_cursor/custom_image="res://assets/NinjaAdventure/Items/Weapons/Rapier/Sprite.png"
-window/custom_image=""
 
 [input]
 

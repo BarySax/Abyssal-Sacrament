@@ -8,9 +8,8 @@ func _process(delta):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func update():
-	if value != player.hp * 100 / player.max_hp:
-		if value <= player.hp * 100 / player.max_hp:
+	if value != player.xp * 100 / player.max_xp:
+		if value <= player.xp * 100 / player.max_xp:
 			value += 1
 		else:
 			value -= 1
-

@@ -1,10 +1,12 @@
+Label
+ProgressBar
+TileMap
 Marker2D
 Sprite2D
 CollisionShape2D
 StaticBody2D
 CollisionPolygon2D
 Control
-TileMap
 Node2D
 AnimatedSprite2D
 Area2D

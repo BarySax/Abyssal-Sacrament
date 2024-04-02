@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var see_range = 300
 @export var hp = 100
 @export var enemy_rotation_spawn = Vector2(0,1)#A user pour definir la rotation de enemy lors du spawn
+var run_range = see_range/2
 var player_position
 var target_position
 var player_seen = false
@@ -38,10 +39,14 @@ func _physics_process(delta):
 		
 	if hp <= 0:
 		queue_free()
+		player.xp += 25
 	player_position = player.position
 	print(hp)
 	
 	target_position = (player_position - position).normalized()
+	if position.distance_to(player_position) >= run_range:
+		speed = 500
+		speed = 300
 	if position.distance_to(player_position) < see_range:
 		state = Chase
 	if position.distance_to(player_position) < attack_range:
@@ -105,4 +110,4 @@ func attack_state(delta):
 func attack_animation_finished():
 	state = Chase
 func _on_hurt_box_area_entered(area):
-	hp -= 20
+	hp -= player.damage

@@ -1,5 +1,9 @@
+res://enemy.tscn
 res://world.tscn
 res://player.tscn
-res://enemy.tscn
 res://hit_and_hurt_boxes/hit_box.tscn
-res://Sword.gd
+res://player.gd
+res://XP.gd
+res://enemy.gd
+res://Level.gd
+res://life_bar.gd

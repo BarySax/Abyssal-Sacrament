@@ -52,7 +52,6 @@ offset_top = 71.75
 offset_right = -139.5
 offset_bottom = 71.75
 pivot_offset = Vector2(-4.495, 9.225)
-metadata/_edit_use_anchors_ = true
 
 [node name="Stamina" type="ProgressBar" parent="Player/Camera2D/Control"]
 modulate = Color(0.960784, 0.564706, 0, 1)
@@ -99,16 +98,14 @@ offset_right = 106.0
 offset_bottom = -31.0
 show_percentage = false
 script = ExtResource("5_hmjuv")
-metadata/_edit_use_anchors_ = true
 
 [node name="Level" type="Label" parent="Player/Camera2D/Control"]
 layout_mode = 0
 offset_left = 4.0
 offset_top = -68.0
-offset_right = 30.0
+offset_right = 34.0
 offset_bottom = -41.0
 script = ExtResource("6_f7yvr")
-metadata/_edit_use_anchors_ = true
 
 [node name="Enemy" parent="." instance=ExtResource("2_j7fyq")]
 position = Vector2(-698, -509)
