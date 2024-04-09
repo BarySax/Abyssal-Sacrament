@@ -1064,6 +1064,7 @@ height = 20.0
 scale = Vector2(4, 4)
 collision_layer = 2
 script = ExtResource("1_q75ff")
+running_speed = 25000
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("4_jfxnq")

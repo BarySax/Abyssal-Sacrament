@@ -125,11 +125,9 @@ func leveling():
 	max_xp = max_xp * 2
 	xp = 0
 func move_state(delta):		
-	if stamina != 100:
-		print(stamina)
-	if stamina >= 100:
+	if stamina >= max_stamina:
 		stamina_up = false
-		stamina = 100
+		stamina = max_stamina
 	if stamina_up == true:
 		stamina += 1
 	if Input.is_action_just_pressed("run") and stamina > 0:
@@ -137,18 +135,17 @@ func move_state(delta):
 			running = true
 			speed = running_speed
 			stamina_up = false
-			print("running")
 		else:
 			running = false
 			speed = walking_speed
 			stamina_up = true
-			print("not running")
 	if running == true:
-		stamina -= 0.5
-		if stamina <= 0:
-			running = false
-			stamina_up = true
-			speed = walking_speed
+		if velocity != Vector2.ZERO:
+			stamina -= 0.5
+			if stamina <= 0:
+				running = false
+				stamina_up = true
+				speed = walking_speed
 	var input_vector = Vector2.ZERO
 	input_vector.x = Input.get_action_strength("walk_right") - Input.get_action_strength("walk_left")
 	input_vector.y = Input.get_action_strength("walk_down") - Input.get_action_strength("walk_up")
