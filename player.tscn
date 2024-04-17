@@ -1053,7 +1053,7 @@ states/Walk/position = Vector2(395, 193)
 transitions = ["Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_qm6qw"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_rf5sb"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_txkao"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_5uidm"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_aodpt"), "Attack", "Walk", SubResource("AnimationNodeStateMachineTransition_rp7s0"), "Walk", "Attack", SubResource("AnimationNodeStateMachineTransition_wyde6")]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jrpc2"]
-radius = 4.58924
+radius = 2.97483
 height = 49.8
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c7cve"]
@@ -1109,15 +1109,15 @@ collision_layer = 16
 collision_mask = 8
 
 [node name="CollisionShape2D" parent="SwordPivot/SwordHitBox" index="0"]
-position = Vector2(15.75, 0.015)
+position = Vector2(3, 0.25)
 scale = Vector2(4.37, 0.15)
 shape = SubResource("CapsuleShape2D_jrpc2")
 
 [node name="Sprite2D" type="Sprite2D" parent="SwordPivot/SwordHitBox"]
 visible = false
-position = Vector2(11.56, 0.67)
+position = Vector2(3.21, 0.67)
 rotation = 1.13446
-scale = Vector2(0.45, 0.45)
+scale = Vector2(0.225, 0.225)
 texture = ExtResource("8_d12kn")
 
 [node name="HurtBox" parent="." instance=ExtResource("6_1n6sw")]

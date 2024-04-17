@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var attack_range = 66.6
 @export var see_range = 300
 @export var hp = 100
-@export var enemy_rotation_spawn = Vector2(0,1)#A user pour definir la rotation de enemy lors du spawn
+
 var run_range = see_range/2
 var player_position
 var target_position
@@ -12,6 +12,7 @@ var player_seen = false
 @onready var animationTree = $AnimationTree
 @onready var animationState = animationTree.get("parameters/playback")
 @onready var player = get_parent().get_node("Player")
+@onready var enemy_spawn_position = position
 var enemy_rotation
 var enemy_direction = Vector2.ZERO
 # Called when the node enters the scene tree for the first time.
@@ -41,11 +42,13 @@ func _physics_process(delta):
 		queue_free()
 		player.xp += 25
 	player_position = player.position
-	print(hp)
-	
-	target_position = (player_position - position).normalized()
+	if player.hp > 0: 
+		target_position = (player_position - position).normalized()
+	else:
+		target_position = (enemy_spawn_position - position).normalized()
 	if position.distance_to(player_position) >= run_range:
-		speed = 500
+		speed = 400
+	else:
 		speed = 300
 	if position.distance_to(player_position) < see_range:
 		state = Chase
@@ -54,7 +57,6 @@ func _physics_process(delta):
 			state = Attack
 	if player.hp > 0:
 		enemy_rotation = get_node("Enemy_rotation").get_rotation()
-	
 	enemy_rotation = rad_to_deg(enemy_rotation)
 	if enemy_rotation <= -360:
 		get_node("Enemy_rotation").set_rotation(0)
@@ -99,12 +101,11 @@ func stand_state(delta):
 	animationState.travel("idle")
 func chase_state(delta):
 	var velocity = Vector2.ZERO
-	if player.hp > 0:
-		velocity = target_position * speed 
-	else:
-		velocity = -target_position * speed
+	velocity = target_position * speed 
 	position += velocity * delta
 	animationState.travel("Walk")
+	if player.hp < 0:
+		velocity = Vector2.ZERO
 func attack_state(delta):
 	animationState.travel("Attack")
 func attack_animation_finished():

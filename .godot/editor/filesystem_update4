@@ -1,5 +1,9 @@
-res://player.tscn
-res://player.gd
 res://world.tscn
+res://player.tscn
 res://enemy.tscn
 res://hit_and_hurt_boxes/hit_box.tscn
+res://player.gd
+res://world.gd
+res://enemy.gd
+res://life_bar.gd
+res://XP.gd
