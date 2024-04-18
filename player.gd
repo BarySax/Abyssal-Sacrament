@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+#region Variables
 
 @export var walking_speed = 20000# speed en pixel/sec
 @export var running_speed = 40000 # speed en pixel/sec
@@ -37,6 +38,7 @@ enum {
 	Dead,
 }
 var state = Move
+#endregion
 func _ready():
 	pass
 func _physics_process(delta):
@@ -51,6 +53,8 @@ func _physics_process(delta):
 		state = Dead
 	if xp >= max_xp:
 		leveling()
+#region Attack_Input
+
 	if Input.is_action_just_pressed("start_attack"):
 		if Input.is_action_just_pressed("action_one"):
 			attack_number = 1
@@ -68,7 +72,10 @@ func _physics_process(delta):
 		else:
 			turning = false
 			old_attack = -1
+#endregion
 	if turning == true:
+#region Direction_And_Anim
+
 		attack_rotation = get_node("Attack_rotation").get_rotation()
 		attack_rotation = rad_to_deg(attack_rotation)
 		if attack_rotation <= -360:
@@ -110,9 +117,9 @@ func _physics_process(delta):
 		animationTree.set("parameters/Idle/blend_position", attack_direction)
 		animationTree.set("parameters/Attack/blend_position", attack_direction)
 		animationTree.set("parameters/Walk/blend_position", attack_direction)
+#endregion
 		if Input.is_action_just_pressed("attack"):
 			state = Attack
-				
 	move_and_slide()
 func leveling():
 	max_hp += 100

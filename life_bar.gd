@@ -10,7 +10,7 @@ func _process(delta):
 func update():
 	if value != player.hp * 100 / player.max_hp:
 		if value <= player.hp * 100 / player.max_hp:
-			value += player.max_hp/42
+			value += 2.5
 		else:
-			value -= player.max_hp/42
+			value -= 2.5
 

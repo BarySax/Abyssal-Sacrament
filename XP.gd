@@ -10,6 +10,6 @@ func _process(delta):
 func update():
 	if value != player.xp * 100 / player.max_xp:
 		if value <= player.xp * 100 / player.max_xp:
-			value += player.max_xp/24
+			value += 2.5
 		else:
-			value -= player.max_xp/24
+			value -= 2.5

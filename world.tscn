@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://dn3n3y7y8kjbn"]
+[gd_scene load_steps=15 format=3 uid="uid://dn3n3y7y8kjbn"]
 
 [ext_resource type="PackedScene" uid="uid://dv4irim4lb2rg" path="res://player.tscn" id="1_n7nyt"]
+[ext_resource type="Script" path="res://world.gd" id="1_tjnxe"]
 [ext_resource type="PackedScene" uid="uid://bob7nm5tjgd57" path="res://enemy.tscn" id="2_j7fyq"]
 [ext_resource type="Script" path="res://life_bar.gd" id="3_mmiwf"]
 [ext_resource type="Script" path="res://stamina_bar.gd" id="3_wi3yt"]
@@ -40,6 +41,7 @@ sources/4 = SubResource("TileSetAtlasSource_1lbup")
 
 [node name="World" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_tjnxe")
 
 [node name="Player" parent="." instance=ExtResource("1_n7nyt")]
 position = Vector2(6, 1)

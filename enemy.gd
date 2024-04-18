@@ -1,9 +1,11 @@
 extends CharacterBody2D
-@export var speed = 300
+#region Variables
+@export var walk_speed = 300
+@export var run_speed = 400
 @export var attack_range = 66.6
 @export var see_range = 300
 @export var hp = 100
-
+var speed = walk_speed
 var run_range = see_range/2
 var player_position
 var target_position
@@ -15,7 +17,6 @@ var player_seen = false
 @onready var enemy_spawn_position = position
 var enemy_rotation
 var enemy_direction = Vector2.ZERO
-# Called when the node enters the scene tree for the first time.
 
 enum {
 	Stand,
@@ -24,11 +25,8 @@ enum {
 	Attack,
 }
 var state = Stand
-func _ready():
-	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+#endregion
 func _physics_process(delta):
 	match state:
 		Stand:
@@ -37,26 +35,29 @@ func _physics_process(delta):
 			chase_state(delta)
 		Attack:
 			attack_state(delta)
-		
+#region Get_Direction_And_Some_Variables
 	if hp <= 0:
 		queue_free()
 		player.xp += 25
 	player_position = player.position
 	if player.hp > 0: 
 		target_position = (player_position - position).normalized()
+		enemy_rotation = get_node("Enemy_rotation").get_rotation()
 	else:
 		target_position = (enemy_spawn_position - position).normalized()
-	if position.distance_to(player_position) >= run_range:
-		speed = 400
+	if position.distance_to(player_position) > run_range:
+		speed = run_speed
 	else:
-		speed = 300
+		speed = walk_speed
+#endregion
+#region State
 	if position.distance_to(player_position) < see_range:
 		state = Chase
 	if position.distance_to(player_position) < attack_range:
 		if player.hp > 0:
 			state = Attack
-	if player.hp > 0:
-		enemy_rotation = get_node("Enemy_rotation").get_rotation()
+#endregion
+#region Get_Rotation_And_Animation
 	enemy_rotation = rad_to_deg(enemy_rotation)
 	if enemy_rotation <= -360:
 		get_node("Enemy_rotation").set_rotation(0)
@@ -96,6 +97,7 @@ func _physics_process(delta):
 	animationTree.set("parameters/idle/blend_position", enemy_direction)
 	animationTree.set("parameters/Walk/blend_position", enemy_direction)
 	animationTree.set("parameters/Attack/blend_position", enemy_direction)
+#endregion
 	move_and_slide()
 func stand_state(delta):
 	animationState.travel("idle")
