@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dn3n3y7y8kjbn"]
+[gd_scene load_steps=17 format=3 uid="uid://dn3n3y7y8kjbn"]
 
 [ext_resource type="PackedScene" uid="uid://dv4irim4lb2rg" path="res://player.tscn" id="1_n7nyt"]
 [ext_resource type="Script" path="res://world.gd" id="1_tjnxe"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://kjrbmsvvyb2k" path="res://icon.svg" id="5_xu6pk"]
 [ext_resource type="Script" path="res://Level.gd" id="6_f7yvr"]
 [ext_resource type="Texture2D" uid="uid://pl24khv2nagn" path="res://assets/ground.png" id="7_vo15o"]
+[ext_resource type="PackedScene" uid="uid://tr3pkrhpw6f4" path="res://house.tscn" id="11_w8odx"]
+[ext_resource type="Texture2D" uid="uid://c84er8pgspkfo" path="res://assets/Oopsie.png" id="12_53ks0"]
 
 [sub_resource type="Theme" id="Theme_ftnc4"]
 default_font_size = 9
@@ -21,30 +23,61 @@ size = Vector2(120, 110)
 texture = ExtResource("7_vo15o")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
 3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
 1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
 2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
 4:0/0 = 0
+4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:0/0/physics_layer_0/angular_velocity = 0.0
 5:0/0 = 0
+5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:0/0/physics_layer_0/angular_velocity = 0.0
 7:0/0 = 0
+7:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+7:0/0/physics_layer_0/angular_velocity = 0.0
 6:0/0 = 0
+6:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:0/0/physics_layer_0/angular_velocity = 0.0
 0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
 1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
 2:1/0 = 0
+2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:1/0/physics_layer_0/angular_velocity = 0.0
 3:1/0 = 0
+3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:1/0/physics_layer_0/angular_velocity = 0.0
 4:1/0 = 0
+4:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:1/0/physics_layer_0/angular_velocity = 0.0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -8, -16, 0, 0, 8, 16, 0)
 
 [sub_resource type="TileSet" id="TileSet_sirgq"]
 tile_shape = 1
 tile_size = Vector2i(32, 16)
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 3
 sources/4 = SubResource("TileSetAtlasSource_1lbup")
 
 [node name="World" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_tjnxe")
 
+[node name="House" parent="." instance=ExtResource("11_w8odx")]
+position = Vector2(696, 560)
+
 [node name="Player" parent="." instance=ExtResource("1_n7nyt")]
-position = Vector2(6, 1)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position_smoothing_speed = 1.0
@@ -158,7 +191,18 @@ position = Vector2(1448, -96)
 [node name="Enemy8" parent="." instance=ExtResource("2_j7fyq")]
 position = Vector2(632, -528)
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+[node name="House2" parent="." instance=ExtResource("11_w8odx")]
+position = Vector2(-608, -304)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
-polygon = PackedVector2Array(4080, -960, 4216, 3408, -1032, 3208, -6000, 96, -4152, -2952, 4096, -1168, 3136, -432, 2416, -496, 2144, -576, 2112, -864, 1952, -896, 1824, -784, 1616, -944, 1584, -1152, 1456, -1104, 816, -1104, 816, -1344, 416, -1360, 464, -1632, -2992, -1840, -3872, -1360, -3792, -1312, -4096, -1184, -3952, -1136, -4304, -1008, -4192, -976, -4192, -880, -4144, -832, -4352, -736, -4432, -624, -4480, -576, -4592, -480, -4592, -336, -4544, -144, -4528, 64, -4480, 208, -4432, 416, -4192, 752, -3056, 1360, -2976, 1536, -2592, 1696, -2368, 1792, -2096, 1808, -1552, 2048, -1232, 2160, -880, 2336, 400, 2384, 416, 2512, 432, 2656, 640, 2688, 1568, 2672, 2112, 2656, 2400, 2512, 2800, 2464, 3632, 2448, 3616, 480, 3088, 464, 3088, -272, 3024, -384, 3024, -416, 3088, -368, 3168, -384, 3200, -448, 3456, -576, 3600, -736)
+[node name="House3" parent="." instance=ExtResource("11_w8odx")]
+position = Vector2(-1280, -656)
+
+[node name="House4" parent="." instance=ExtResource("11_w8odx")]
+position = Vector2(-2232, -1144)
+
+[node name="Oopsie" type="Sprite2D" parent="."]
+z_index = 4096
+texture_filter = 2
+position = Vector2(2408, -5348)
+scale = Vector2(3.45, 4.19)
+texture = ExtResource("12_53ks0")

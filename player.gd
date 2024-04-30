@@ -187,4 +187,6 @@ func _on_hurt_box_area_entered(area):
 	hp -= 20
 func dead_state(delta):
 	visible = false
+	position.x = 2408
+	position.y = -5344
 	velocity = Vector2.ZERO
