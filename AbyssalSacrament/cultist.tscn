@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://g4psao3revdu"]
+
+[ext_resource type="Script" path="res://cultist.gd" id="1_hvr42"]
+[ext_resource type="Texture2D" uid="uid://c1p4qt3kyewpd" path="res://icon.svg" id="1_rdj3s"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hya1o"]
+radius = 32.0
+height = 128.0
+
+[sub_resource type="Curve" id="Curve_v5tv7"]
+_data = [Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveTexture" id="CurveTexture_hstrl"]
+curve = SubResource("Curve_v5tv7")
+
+[sub_resource type="Curve" id="Curve_nmkp6"]
+_data = [Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveTexture" id="CurveTexture_pods3"]
+curve = SubResource("Curve_nmkp6")
+
+[node name="Cultist" type="CharacterBody2D" groups=["Enemies"]]
+collision_layer = 4
+script = ExtResource("1_hvr42")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 1)
+texture = ExtResource("1_rdj3s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_hya1o")
+
+[node name="hp_bar" type="TextureProgressBar" parent="."]
+offset_left = -40.0
+offset_top = -80.0
+offset_right = 40.0
+offset_bottom = -70.0
+scale = Vector2(0.998642, 1)
+value = 100.0
+nine_patch_stretch = true
+texture_under = SubResource("CurveTexture_hstrl")
+texture_progress = SubResource("CurveTexture_pods3")
+tint_under = Color(0.113725, 0.113725, 0.113725, 1)
+tint_progress = Color(0.419608, 0, 0.0823529, 1)
+
+[node name="TurnAxis" type="Marker2D" parent="."]
+
+[node name="CastPoint" type="Marker2D" parent="TurnAxis"]
+position = Vector2(48, 0)

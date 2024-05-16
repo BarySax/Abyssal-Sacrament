@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://b5g4ajr2ruugx"]
+
+[ext_resource type="Texture2D" uid="uid://c1p4qt3kyewpd" path="res://icon.svg" id="1_5qv28"]
+[ext_resource type="Script" path="res://range_aoe_skill.gd" id="1_bv22q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v8quj"]
+radius = 128.25
+
+[sub_resource type="Animation" id="Animation_n7kvk"]
+resource_name = "AOE"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 0]
+}
+
+[sub_resource type="Animation" id="Animation_4thyj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j7fn3"]
+_data = {
+"AOE": SubResource("Animation_n7kvk"),
+"RESET": SubResource("Animation_4thyj")
+}
+
+[node name="RangeAOESkill" type="Area2D"]
+z_index = -10
+collision_layer = 1024
+collision_mask = 6
+script = ExtResource("1_bv22q")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 1)
+texture = ExtResource("1_5qv28")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1, 0.5)
+shape = SubResource("CircleShape2D_v8quj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_j7fn3")
+}
